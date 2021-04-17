@@ -1,0 +1,21 @@
+version: "2.0"
+services:
+  v4:
+    image: nevinee/jd:v4
+    container_name: v4
+    restart: always
+    tty: true
+    network_mode: bridge
+    hostname: v4
+    volumes:
+      - /opt/v4/config:/jd/config
+      - /opt/v4/log:/jd/log
+      - /opt/v4/own:/jd/own
+      - /opt/v4/scripts:/jd/scripts
+      - /opt/v4/bot:/jd/bot
+    ports:
+      - 9002:5678
+    environment: 
+      - ENABLE_TTYD=false
+      - ENABLE_WEB_PANEL=true
+      - ENABLE_HANGUP=false
